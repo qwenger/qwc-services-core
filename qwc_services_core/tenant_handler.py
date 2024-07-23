@@ -216,5 +216,5 @@ class TenantSessionInterface(SecureCookieSessionInterface, TenantHandlerBase):
         # https://flask.palletsprojects.com/en/1.1.x/api/#flask.sessions.SessionInterface.get_cookie_path
         prefix = self.tenant_path_prefix()
         # Set config as a side effect
-        app.config['JWT_ACCESS_COOKIE_PATH'] = prefix
+        app.config['JWT_ACCESS_COOKIE_PATH'] = prefix or "/"
         return prefix
